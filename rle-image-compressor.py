@@ -66,11 +66,11 @@ def evaluate_rle(image_path):
     fig, axs = plt.subplots(2, 2, figsize=(12, 10))
 
     axs[0,0].imshow(Image.open(image_path))
-    axs[0,0].set_title("Original Image")
+    axs[0,0].set_title("Uploaded Image")
     axs[0,0].axis("off")
 
     axs[0,1].imshow(binary_image, cmap='gray')
-    axs[0,1].set_title(" Original image converted toBinary Image")
+    axs[0,1].set_title("uploaded image converted to Binary Image(ORIGINAL IMAGE)")
     axs[0,1].axis("off")
 
     axs[1,0].imshow(decoded_image, cmap='gray')
@@ -78,7 +78,7 @@ def evaluate_rle(image_path):
     axs[1,0].axis("off")
 
     axs[1,1].imshow(decoded_image_RGB)
-    axs[1,1].set_title("Compressed image back to original")
+    axs[1,1].set_title("Trying to  convert Decompressed image back to Uploaded Image")
     axs[1,1].axis("off")
 
     plt.show()
