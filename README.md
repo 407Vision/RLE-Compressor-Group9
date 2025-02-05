@@ -23,3 +23,9 @@ The used image in this repo is "batman.jep".
 
                 **IMAGES OF THE RESULTS OF THE RUN-LENGTH ENCODING AFTER RUNNING CODES**
 ![END-RESULT PICTURES](IMAGES)
++Click the above link (END-RESULT PICTURES)
++Click the **"PICTURES OF THE IMAGES AFTER RUNNING CODES"**
++Click **"view raw"**
+
+            _** OR**_
+Just open the "REULTS AFTER AND BEFORE RUNNIG CODE" file in the repo
