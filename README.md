@@ -10,12 +10,13 @@ OPEN CV, Image, Numpy and matplotlib.pyplot are some libraries that were importe
 The used image in this repo is "batman.jep".
 +Get a picture and upload it to FILES in colab.
 
-+Then look for the codes: # Example Usage
-                          if __name__ == "__main__":
++Then look for the codes: 
+# Example Usage
+if __name__ == "__main__":
                           
-                              image_path = "/content/batman.jpg"  # Provide the path to a binary image
+   image_path = "/content/batman.jpg"  # Provide the path to a binary image
                               
-                              evaluate_rle(image_path)
+   evaluate_rle(image_path)
                               
 +replace **"/content/batman.jpg"** with the path pf your picture.
 
