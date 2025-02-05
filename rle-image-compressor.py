@@ -1,7 +1,9 @@
+import cv2
 from PIL import Image
 import numpy as np
+import matplotlib.pyplot as plt
 
-# Step 1: Load and Preprocess the Image
+
 def load_binary_image(image_path):
     """Load an image and convert it to binary (black and white)."""
     image = Image.open(image_path).convert('L')  # Convert to grayscale
@@ -26,6 +28,7 @@ def rle_encode(binary_image):
     return encoded
 
 
+
 # Step 3: Run-Length Decoding
 def rle_decode(encoded, shape):
     """Decode RLE-compressed data back into the original binary image."""
@@ -35,12 +38,17 @@ def rle_decode(encoded, shape):
     return np.array(decoded).reshape(shape)
 
 
+
 # Step 4: Evaluation
 def evaluate_rle(image_path):
     """Load an image, compress it using RLE, and evaluate the results."""
     binary_image = load_binary_image(image_path)
     encoded = rle_encode(binary_image)
     decoded_image = rle_decode(encoded, binary_image.shape)
+
+    # Convert boolean to uint8 before using OpenCV to convert the decoded image to rgb
+    decoded_image_uint8 = (decoded_image * 255).astype(np.uint8)
+    decoded_image_RGB = cv2.cvtColor(decoded_image_uint8, cv2.COLOR_GRAY2RGB)
 
     # Compare sizes
     original_size = binary_image.size
@@ -54,7 +62,31 @@ def evaluate_rle(image_path):
     assert np.array_equal(binary_image, decoded_image), "Decompressed image does not match the original!"
     print("Decompression successful: The images match!")
 
+
+    fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+
+    axs[0,0].imshow(Image.open(image_path))
+    axs[0,0].set_title("Original Image")
+    axs[0,0].axis("off")
+
+    axs[0,1].imshow(binary_image, cmap='gray')
+    axs[0,1].set_title(" Original image converted toBinary Image")
+    axs[0,1].axis("off")
+
+    axs[1,0].imshow(decoded_image, cmap='gray')
+    axs[1,0].set_title("Decompressed Image")
+    axs[1,0].axis("off")
+
+    axs[1,1].imshow(decoded_image_RGB)
+    axs[1,1].set_title("Compressed image back to original")
+    axs[1,1].axis("off")
+
+    plt.show()
+
+
 # Example Usage
 if __name__ == "__main__":
-    image_path = "/content/example_binary_image.jpg"  # Provide the path to a binary image
+    image_path = "/content/batman.jpg"  # Provide the path to a binary image
     evaluate_rle(image_path)
+
+  
