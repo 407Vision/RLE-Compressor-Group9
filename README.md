@@ -22,4 +22,4 @@ The used image in this repo is "batman.jep".
 -Another function is created to decode the encoded image to the original for(which is the binary image)
 
                 **IMAGES OF THE RESULTS OF THE RUN-LENGTH ENCODING AFTER RUNNING CODES**
-![END-RESULT PICTURES](IMAGES/PICTURES OF THE IMAGES  AFTER RUNNING CODES)
+![END-RESULT PICTURES](IMAGES)
